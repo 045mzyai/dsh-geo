@@ -7,6 +7,8 @@
 [![last commit](https://img.shields.io/github/last-commit/045mzyai/dsh-geo)](https://github.com/045mzyai/dsh-geo/commits/main)
 [![issues](https://img.shields.io/github/issues/045mzyai/dsh-geo)](https://github.com/045mzyai/dsh-geo/issues)
 
+> 由 [妙智云](https://www.mzyai.com) 开源维护 · AI 驱动的新一代智能云平台
+>
 > 面向 AI 大模型时代的企业官网 **GEO（生成式引擎优化）** 平台 —— 让你的官网在 DeepSeek、Kimi、豆包、GLM、混元 等 AI 回答中被准确引用与推荐。
 
 **English:** A self-hosted GEO (Generative Engine Optimization) platform for enterprise websites. Instead of ranking on traditional search engines, GEO optimizes your site so LLM-based answer engines accurately cite and recommend it. dsh-geo bundles diagnosis, multi-dimensional scoring, optimization-artifact generation, compliance gating, and AI-visibility benchmarking in one Flask service.
@@ -132,7 +134,7 @@ docker compose up -d   # 构建并后台启动
 
 ## 📄 License
 
-[MIT](./LICENSE) © 2026 045mzyai
+[MIT](./LICENSE) © 2026 [妙智云](https://www.mzyai.com)
 
 ## 🤝 贡献
 
