@@ -1,0 +1,79 @@
+﻿{
+    "data":  {
+                 "charset_declared":  false,
+                 "checks":  {
+                                "ai_readability":  {
+                                                       "chinese_chars":  3349,
+                                                       "detail":  "中文字符3349个, 联系方式有, 地址有",
+                                                       "has_address":  true,
+                                                       "has_contact_info":  true,
+                                                       "pass":  true,
+                                                       "text_length":  5574,
+                                                       "word_count":  775
+                                                   },
+                                "headings":  {
+                                                 "detail":  "H1: 1个, H2: 9个, H3: 18个",
+                                                 "h1_count":  1,
+                                                 "h1_text":  [
+                                                                 "专注中小企业AI 落地部署"
+                                                             ],
+                                                 "h2_count":  9,
+                                                 "h3_count":  18,
+                                                 "pass":  true
+                                             },
+                                "https":  {
+                                              "detail":  "HTTPS",
+                                              "pass":  true
+                                          },
+                                "links":  {
+                                              "external":  2,
+                                              "internal":  1,
+                                              "pass":  true,
+                                              "total":  43
+                                          },
+                                "llms_txt":  {
+                                                 "ai_txt":  false,
+                                                 "detail":  "未部署（大模型无法定向抓取）",
+                                                 "llms_txt":  false,
+                                                 "pass":  false
+                                             },
+                                "meta_tags":  {
+                                                  "description":  "四川木子杨科技有限公司是 FDE（前线部署工程师）团队，专注为中小企业提供 AI 部署落地服务。工程师到现场，15 天交付可量化的业务结果，效果未达成全额退款。旗下秒知智能云短剧AIGC平台、企微AI办公套件（7×24数字员工，千人千面企业内控）。028-61624488。",
+                                                  "has_charset":  true,
+                                                  "has_description":  true,
+                                                  "has_viewport":  true,
+                                                  "pass":  true,
+                                                  "title":  "木子杨科技 | FDE 前线部署工程师 · 15 天交付可量化结果"
+                                              },
+                                "structured_data":  {
+                                                        "detail":  "JSON-LD: 3个, Microdata: 0个",
+                                                        "json_ld_count":  3,
+                                                        "microdata_count":  0,
+                                                        "pass":  true,
+                                                        "schema_types":  [
+                                                                             "Organization",
+                                                                             "WebSite",
+                                                                             "LocalBusiness"
+                                                                         ]
+                                                    }
+                            },
+                 "domain":  "www.mzyai.com",
+                 "html_size":  103507,
+                 "issues":  [
+                                {
+                                    "category":  "AI适配",
+                                    "message":  "未部署llms.txt，大模型无法定向抓取",
+                                    "severity":  "high"
+                                },
+                                {
+                                    "category":  "AI适配",
+                                    "message":  "HTTP响应头未声明charset，部分AI爬虫可能按ISO-8859-1误解码中文内容",
+                                    "severity":  "medium"
+                                }
+                            ],
+                 "score":  85,
+                 "status_code":  200,
+                 "url":  "https://www.mzyai.com"
+             },
+    "success":  true
+}

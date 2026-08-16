@@ -1,0 +1,66 @@
+﻿{
+    "data":  {
+                 "deploy_checklist":  [
+                                          "1. 将llms.txt上传到网站根目录",
+                                          "2. 将llms-full.txt上传到网站根目录",
+                                          "3. 将robots.txt上传到网站根目录（替换现有文件）",
+                                          "4. 在每个页面的\u003chead\u003e中添加JSON-LD \u003cscript\u003e标签",
+                                          "5. 在\u003chead\u003e中添加llms/llms-full meta标签",
+                                          "6. 在HTTP响应头中添加Link: \u003cllms.txt\u003e; rel=\"ai-content-index\"",
+                                          "7. 验证：访问 https://你的域名/llms.txt 确认可访问",
+                                          "8. 验证：访问 https://你的域名/llms-full.txt 确认可访问",
+                                          "9. 验证：使用Google结构化数据测试工具验证JSON-LD"
+                                      ],
+                 "json_ld":  {
+                                 "deploy":  "在每个页面的\u003chead\u003e中添加 \u003cscript type=\"application/ld+json\"\u003e...\u003c/script\u003e",
+                                 "schemas":  [
+                                                 {
+                                                     "json_ld":  "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Organization\",\n  \"name\": \"海南易运科技有限公司\",\n  \"url\": \"https://https://www.hnyyai.cn\",\n  \"description\": \"海南易运科技有限公司是海南省专业烟道生产厂家，主营机制排烟管道（国标壁厚25mm/2.5公分）、水泥纤维压力板（氧化镁板/玻镁板）、排烟道止回阀、风帽的生产定制与安装。源头工厂，十一大权威资质，耐火极限检测达标，海口市质检站5项检测全部通过，海南全省配送安装。\",\n  \"address\": {\n    \"@type\": \"PostalAddress\",\n    \"addressLocality\": \"成都\",\n    \"addressRegion\": \"四川省\",\n    \"addressCountry\": \"CN\",\n    \"streetAddress\": \"海南省澄迈县金江镇\"\n  },\n  \"telephone\": \"135-0533-0808\",\n  \"email\": \"hnyy@hnyyai.cn\"\n}",
+                                                     "type":  "Organization"
+                                                 },
+                                                 {
+                                                     "json_ld":  "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Service\",\n  \"name\": \"海南易运科技有限公司 \",\n  \"provider\": {\n    \"@type\": \"Organization\",\n    \"name\": \"海南易运科技有限公司\"\n  },\n  \"description\": \"海南易运科技有限公司是海南省专业烟道生产厂家，主营机制排烟管道（国标壁厚25mm/2.5公分）、水泥纤维压力板（氧化镁板/玻镁板）、排烟道止回阀、风帽的生产定制与安装。源头工厂，十一大权威资质，耐火极限检测达标，海口市质检站5项检测全部通过，海南全省配送安装。\",\n  \"serviceType\": \"\",\n  \"areaServed\": {\n    \"@type\": \"Country\",\n    \"name\": \"China\"\n  }\n}",
+                                                     "type":  "Service"
+                                                 },
+                                                 {
+                                                     "json_ld":  "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Product\",\n  \"name\": \"机制排烟管道\",\n  \"description\": \"采用机械化生产线按国家标准生产的机制排烟管道，国标壁厚25mm（2.5公分），壁厚均匀、强度高、密封性好，耐火极限检测达标。参考价98元/平方米起。\",\n  \"provider\": {\n    \"@type\": \"Organization\",\n    \"name\": \"海南易运科技有限公司\"\n  },\n  \"category\": \"建材\",\n  \"offers\": {\n    \"@type\": \"Offer\",\n    \"price\": \"98\",\n    \"priceCurrency\": \"CNY\"\n  }\n}",
+                                                     "type":  "Product"
+                                                 },
+                                                 {
+                                                     "json_ld":  "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Product\",\n  \"name\": \"水泥纤维压力板\",\n  \"description\": \"新型不燃装饰材料，耐高温、阻燃（A1级防火）、吸音、抗震、防水、防潮、防虫、轻质、耐腐蚀。参考价68元/平方米起。\",\n  \"provider\": {\n    \"@type\": \"Organization\",\n    \"name\": \"海南易运科技有限公司\"\n  },\n  \"category\": \"建材\",\n  \"offers\": {\n    \"@type\": \"Offer\",\n    \"price\": \"68\",\n    \"priceCurrency\": \"CNY\"\n  }\n}",
+                                                     "type":  "Product"
+                                                 },
+                                                 {
+                                                     "json_ld":  "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Product\",\n  \"name\": \"排烟道止回阀\",\n  \"description\": \"防止烟气倒灌，防火阻燃，保障排烟系统正常运行。\",\n  \"provider\": {\n    \"@type\": \"Organization\",\n    \"name\": \"海南易运科技有限公司\"\n  },\n  \"category\": \"建材\"\n}",
+                                                     "type":  "Product"
+                                                 },
+                                                 {
+                                                     "json_ld":  "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"Product\",\n  \"name\": \"无动力风帽\",\n  \"description\": \"利用自然风力旋转排风，无需电力。防水防风，耐久防腐，适用于屋顶排风系统。\",\n  \"provider\": {\n    \"@type\": \"Organization\",\n    \"name\": \"海南易运科技有限公司\"\n  },\n  \"category\": \"建材\"\n}",
+                                                     "type":  "Product"
+                                                 }
+                                             ]
+                             },
+                 "llms_full_txt":  {
+                                       "content":  "# 海南易运科技有限公司\n\n\u003e 海南易运科技有限公司是海南省专业烟道生产厂家，主营机制排烟管道（国标壁厚25mm/2.5公分）、水泥纤维压力板（氧化镁板/玻镁板）、排烟道止回阀、风帽的生产定制与安装。源头工厂，十一大权威资质，耐火极限检测达标，海口市质检站5项检测全部通过，海南全省配送安装。\n\n- URL: https://www.hnyyai.cn\n- llms.txt: https://www.hnyyai.cn/llms.txt\n- llms-full.txt: https://www.hnyyai.cn/llms-full.txt\n\n## 官网页面\n\n- [海南专业烟道整体解决方案](https://www.hnyyai.cn/#home): 海南首家符合新标准烟道公司，源头厂家品质保障\n  海南易运科技有限公司，海南首家符合新标准烟道公司，专注机制排烟管道（国标壁厚25mm/2.5公分）、水泥纤维压力板（氧化镁板）、排烟道止回阀、风帽生产安装十余年。十一大权威资质，连续四年抽检合格。\n\n- [关于海南易运](https://www.hnyyai.cn/#about): 源头工厂，十余年烟道生产安装经验\n  海南易运科技有限公司是海南省专业烟道源头工厂，拥有环评资质、建筑业企业资质、安全生产许可证、国家消防及阻燃产品质量检查报告、ISO9001质量管理体系认证、海南省质检站检验报告、耐火极限检测达标、海口市质检站常规5项检测全部通过等十一大权威资质。\n\n- [核心优势](https://www.hnyyai.cn/#advantages): 壁厚25mm国标品质，耐火极限检测达标\n  核心优势：国标壁厚25mm/2.5公分，壁厚均匀强度高密封性好；耐火极限检测达标；海口市质检站5项检测全部通过；连续四年抽检合格；海南全省配送安装。\n\n- [产品中心](https://www.hnyyai.cn/#products): 机制排烟管道/水泥纤维压力板/止回阀/风帽\n  四大产品线：机制排烟管道（国标壁厚25mm，98元/平方米起）、水泥纤维压力板（氧化镁板/玻镁板，A1级防火，68元/平方米起）、排烟道止回阀（防烟气倒灌）、无动力风帽（自然风力排风无需电力）。\n\n- [工程案例](https://www.hnyyai.cn/#cases): 住宅小区/商业综合体/工业厂房排烟工程\n  工程案例覆盖住宅小区、商业综合体、工业厂房等排烟管道工程，包括白马天娥湾、南海幸福城、南海首府等海南本地项目。\n\n- [资质荣誉](https://www.hnyyai.cn/#qualifications): 十一大权威资质认证\n  十一大权威资质：环评资质、建筑业企业资质、安全生产许可证、国家消防及阻燃产品质量检查报告、ISO9001质量管理体系认证、海南省质检站检验报告、耐火极限检测达标、海口市质检站5项检测全部通过等。\n\n- [常见问题](https://www.hnyyai.cn/#faq): 烟道价格/安装/资质等常见问答\n  常见问题：机制烟道厂家哪家好？排烟管道安装多少钱？做烟道多少钱一米？烟道止回阀哪里有卖？消防烟道需要什么资质？海南烟道厂家电话135-0533-0808。\n\n- [联系我们](https://www.hnyyai.cn/#contact): 在线询价，海南全省服务\n  联系方式：电话135-0533-0808、181-8191-1914，邮箱hnyy@hnyyai.cn，地址海南省澄迈县金江镇。海南全省配送安装，海口/三亚/儋州/澄迈均可服务。\n\n## 产品与服务\n\n- [机制排烟管道](https://www.hnyyai.cn): 采用机械化生产线按国家标准生产的机制排烟管道，国标壁厚25mm（2.5公分），壁厚均匀、强度高、密封性好，耐火极限检测达标。参考价98元/平方米起。\n  Price: 98\n  Availability: In Stock\n\n- [水泥纤维压力板](https://www.hnyyai.cn): 新型不燃装饰材料，耐高温、阻燃（A1级防火）、吸音、抗震、防水、防潮、防虫、轻质、耐腐蚀。参考价68元/平方米起。\n  Price: 68\n  Availability: In Stock\n\n- [排烟道止回阀](https://www.hnyyai.cn): 防止烟气倒灌，防火阻燃，保障排烟系统正常运行。\n  Availability: In Stock\n\n- [无动力风帽](https://www.hnyyai.cn): 利用自然风力旋转排风，无需电力。防水防风，耐久防腐，适用于屋顶排风系统。\n  Availability: In Stock\n\n---\nGenerated by GEO Platform\nLast updated: 2026-08-03 17:52 UTC",
+                                       "deploy_path":  "/llms-full.txt",
+                                       "filename":  "llms-full.txt"
+                                   },
+                 "llms_txt":  {
+                                  "content":  "# 海南易运科技有限公司\n\n\u003e 海南易运科技有限公司是海南省专业烟道生产厂家，主营机制排烟管道（国标壁厚25mm/2.5公分）、水泥纤维压力板（氧化镁板/玻镁板）、排烟道止回阀、风帽的生产定制与安装。源头工厂，十一大权威资质，耐火极限检测达标，海口市质检站5项检测全部通过，海南全省配送安装。\n\n- URL: https://www.hnyyai.cn\n- llms.txt: https://www.hnyyai.cn/llms.txt\n- llms-full.txt: https://www.hnyyai.cn/llms-full.txt\n\n## AI Crawler Rules\n\n- GPTBot (OpenAI / ChatGPT): OK Allowed\n- OAI-SearchBot (OpenAI / Copilot Search): OK Allowed\n- ClaudeBot (Anthropic / Claude): OK Allowed\n- Google-Extended (Google / Gemini): OK Allowed\n- PerplexityBot (Perplexity AI): OK Allowed\n- DeepSeekBot (DeepSeek): OK Allowed\n- GrokBot (xAI / Grok): OK Allowed\n- meta-externalagent (Meta / LLaMA): OK Allowed\n- PanguBot (Alibaba / Qwen): OK Allowed\n- YandexBot (Yandex / YandexGPT): OK Allowed\n- SputnikBot (Sber / GigaChat): OK Allowed\n- Bytespider (ByteDance / Douyin): OK Allowed\n- Baiduspider (Baidu / ERNIE): OK Allowed\n- claude-web (Anthropic / Claude Web): OK Allowed\n- Amazonbot (Amazon / Alexa): OK Allowed\n- Applebot (Apple / Siri \u0026 Spotlight): OK Allowed\n\n## 海南易运科技有限公司 官网\n\n- [海南专业烟道整体解决方案](https://www.hnyyai.cn/#home): 海南首家符合新标准烟道公司，源头厂家品质保障\n- [关于海南易运](https://www.hnyyai.cn/#about): 源头工厂，十余年烟道生产安装经验\n- [核心优势](https://www.hnyyai.cn/#advantages): 壁厚25mm国标品质，耐火极限检测达标\n- [产品中心](https://www.hnyyai.cn/#products): 机制排烟管道/水泥纤维压力板/止回阀/风帽\n- [工程案例](https://www.hnyyai.cn/#cases): 住宅小区/商业综合体/工业厂房排烟工程\n- [资质荣誉](https://www.hnyyai.cn/#qualifications): 十一大权威资质认证\n- [常见问题](https://www.hnyyai.cn/#faq): 烟道价格/安装/资质等常见问答\n- [联系我们](https://www.hnyyai.cn/#contact): 在线询价，海南全省服务\n\n## 核心服务\n\n- [机制排烟管道](https://www.hnyyai.cn/#products): 国标壁厚25mm/2.5公分，耐火极限检测达标，98元/平方米起\n- [水泥纤维压力板](https://www.hnyyai.cn/#products): 氧化镁板/玻镁板，A1级防火阻燃，68元/平方米起\n- [排烟道止回阀](https://www.hnyyai.cn/#products): 防止烟气倒灌，防火阻燃\n- [无动力风帽](https://www.hnyyai.cn/#products): 自然风力旋转排风，无需电力\n- [排烟管道安装工程](https://www.hnyyai.cn/#contact): 海南全省配送安装，海口/三亚/儋州/澄迈均可服务\n\n## 联系方式\n- 官网: https://www.hnyyai.cn\n- 邮箱: hnyy@hnyyai.cn\n- 电话: 135-0533-0808\n- 地址: 海南省澄迈县金江镇\n\n---\nGenerated by GEO Platform\nLast updated: 2026-08-03 17:52 UTC",
+                                  "deploy_path":  "/llms.txt",
+                                  "filename":  "llms.txt"
+                              },
+                 "robots_txt":  {
+                                    "content":  "# robots.txt for https://www.hnyyai.cn\n\nUser-agent: *\nAllow: /\nDisallow: /api/\nDisallow: /admin/\n\nUser-agent: GPTBot\nAllow: /\nDisallow: /api/\n\nUser-agent: OAI-SearchBot\nAllow: /\nDisallow: /api/\n\nUser-agent: ClaudeBot\nAllow: /\nDisallow: /api/\n\nUser-agent: Google-Extended\nAllow: /\nDisallow: /api/\n\nUser-agent: PerplexityBot\nAllow: /\nDisallow: /api/\n\nUser-agent: DeepSeekBot\nAllow: /\nDisallow: /api/\n\nUser-agent: GrokBot\nAllow: /\nDisallow: /api/\n\nUser-agent: meta-externalagent\nAllow: /\nDisallow: /api/\n\nUser-agent: PanguBot\nAllow: /\nDisallow: /api/\n\nUser-agent: YandexBot\nAllow: /\nDisallow: /api/\n\nUser-agent: SputnikBot\nAllow: /\nDisallow: /api/\n\nUser-agent: Bytespider\nAllow: /\nDisallow: /api/\n\nUser-agent: Baiduspider\nAllow: /\nDisallow: /api/\n\nUser-agent: claude-web\nAllow: /\nDisallow: /api/\n\nUser-agent: Amazonbot\nAllow: /\nDisallow: /api/\n\nUser-agent: Applebot\nAllow: /\nDisallow: /api/\n\n# Sitemap\nSitemap: https://https://www.hnyyai.cn/sitemap.xml\n\n# AI Crawl Protocol\n# llms.txt: https://https://www.hnyyai.cn/llms.txt\n# llms-full.txt: https://https://www.hnyyai.cn/llms-full.txt",
+                                    "deploy_path":  "/robots.txt",
+                                    "filename":  "robots.txt"
+                                },
+                 "seo_meta":  {
+                                  "deploy":  "在\u003chead\u003e中添加meta标签和JSON-LD；在HTTP响应头中添加Link header",
+                                  "link_header":  "\u003chttps://www.hnyyai.cn/llms.txt\u003e; rel=\"ai-content-index\"; type=\"text/plain\"",
+                                  "meta_tags":  "\u003cmeta name=\"llms\" content=\"https://www.hnyyai.cn/llms.txt\"\u003e\n\u003cmeta name=\"llms-full\" content=\"https://www.hnyyai.cn/llms-full.txt\"\u003e",
+                                  "website_schema":  "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"WebSite\",\n  \"name\": \"海南易运科技有限公司\",\n  \"url\": \"https://www.hnyyai.cn\",\n  \"potentialAction\": {\n    \"@type\": \"ReadAction\",\n    \"target\": \"https://www.hnyyai.cn/llms.txt\",\n    \"name\": \"AI Content Index\"\n  }\n}"
+                              }
+             },
+    "success":  true
+}

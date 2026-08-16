@@ -1,0 +1,23 @@
+version: "3.8"
+
+services:
+  geo-platform:
+    build: .
+    container_name: geo-platform
+    restart: unless-stopped
+    ports:
+      - "8060:8060"
+    volumes:
+      - geo-data:/app/data
+    environment:
+      - MZY_API_KEY=${MZY_API_KEY}
+      - MZY_BASE_URL=${MZY_BASE_URL:-https://token.mzyai.com/v1}
+      - GEO_API_TOKEN=${GEO_API_TOKEN:-}
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8060/health')"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+volumes:
+  geo-data:

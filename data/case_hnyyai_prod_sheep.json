@@ -1,0 +1,97 @@
+﻿{
+    "data":  {
+                 "company_name":  "海南易运科技有限公司",
+                 "details":  {
+                                 "E1":  "采用JSON-LD结构化数据（11个对象），涵盖LocalBusiness、FAQ、Article等类型，标题层级清晰（H1-H3共37个），信息架构适合AI解析，认知负荷低，证据结构化程度高。",
+                                 "E2":  "已部署llms.txt文件，迈出AI生态集成关键一步，但缺少ai.txt，外链为0，多平台可见性和交叉引用网络薄弱，集成度处于起步阶段，刚达到合格水平。",
+                                 "H":  "HTTPS有效，有联系方式与地址，具备基本信任信号。但缺少行业权威认证、第三方评价、媒体报道或作者专业背景展示，社会证明和领域权威性较弱，整体可信度中等。",
+                                 "P":  "网站技术性能良好（诊断评分100/100，页面大小158KB，HTTP 200），但未提供AI推荐流量、转化率或用户留存数据，转化潜力无法准确评估，暂时基于技术表现给予中等偏上评分。",
+                                 "S":  "页面标题和描述精准覆盖核心关键词，正文内容充实（5549字），结构清晰，能有效被AI提取语义信息。但缺少跨模型验证的具体数据，暂未体现多AI引擎覆盖的量化证据，因此语义覆盖度评为良好。"
+                             },
+                 "diagnosis":  {
+                                   "overall_score":  100,
+                                   "status_code":  200,
+                                   "url":  "https://www.hnyyai.cn"
+                               },
+                 "dimensions":  {
+                                    "E1":  {
+                                               "grade":  "A",
+                                               "name":  "证据结构化",
+                                               "score":  82,
+                                               "weight":  "20%"
+                                           },
+                                    "E2":  {
+                                               "grade":  "B",
+                                               "name":  "生态集成度",
+                                               "score":  60,
+                                               "weight":  "15%"
+                                           },
+                                    "H":  {
+                                              "grade":  "B",
+                                              "name":  "人类可信度",
+                                              "score":  65,
+                                              "weight":  "25%"
+                                          },
+                                    "P":  {
+                                              "grade":  "B",
+                                              "name":  "性能监控",
+                                              "score":  68,
+                                              "weight":  "15%"
+                                          },
+                                    "S":  {
+                                              "grade":  "B+",
+                                              "name":  "语义覆盖度",
+                                              "score":  78,
+                                              "weight":  "25%"
+                                          }
+                                },
+                 "evidence_source":  "auto_diagnosis",
+                 "gem_score":  71.4,
+                 "grade":  "B+",
+                 "improvement_suggestions":  [
+                                                 "补充ai.txt文件，进一步明确AI爬取策略，增强生态集成信号。",
+                                                 "增加外链建设和行业权威引用，例如协会链接、合作方链接，提升信任度和引用网络。",
+                                                 "展示客户案例、评价或资质证书，强化社会证明和领域权威性，提高人类可信度。"
+                                             ],
+                 "model_weights":  {
+                                       "deepseek":  0.1,
+                                       "doubao":  0.14,
+                                       "ernie":  0.13,
+                                       "glm-4":  0.12,
+                                       "hunyuan":  0.08,
+                                       "mita":  0.08,
+                                       "moonshot":  0.11,
+                                       "qwen":  0.15,
+                                       "spark":  0.09
+                                   },
+                 "reflection":  {
+                                    "adjustments":  {
+                                                        "E1":  {
+                                                                   "after":  82,
+                                                                   "before":  92
+                                                               },
+                                                        "E2":  {
+                                                                   "after":  60,
+                                                                   "before":  35
+                                                               },
+                                                        "H":  {
+                                                                  "after":  65,
+                                                                  "before":  72
+                                                              },
+                                                        "P":  {
+                                                                  "after":  68,
+                                                                  "before":  70
+                                                              },
+                                                        "S":  {
+                                                                  "after":  78,
+                                                                  "before":  82
+                                                              }
+                                                    },
+                                    "contradictions":  [
+                                                           "E2生态集成度：证据显示llms.txt已部署，这是明确的AI生态集成动作，评分35偏低（证据下限60）"
+                                                       ],
+                                    "triggered":  true
+                                }
+             },
+    "success":  true
+}

@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+
+# 环境变量与密钥（切勿提交真实密钥）
+.env
+.env.local
+.env.*.local
+
+# 数据库
+*.db
+*.sqlite
+*.sqlite3
+data/geo.db
+
+# 本地数据脚本（部署/抽取/测试，不随仓库发布）
+data/_*.py
+
+# 日志与临时文件
+*.log
+*.tmp
+*.cache
+
+# 测试与工具缓存
+.pytest_cache/
+.playwright-cli/
+.pi/
+
+# IDE / OS
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store

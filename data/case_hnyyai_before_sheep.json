@@ -1,0 +1,78 @@
+﻿{
+    "data":  {
+                 "company_name":  "海南易运科技有限公司",
+                 "details":  {
+                                 "E1":  "JSON-LD结构化数据多达11个，涵盖BreadcrumbList、LocalBusiness、FAQPage、Article、Organization等，信息架构清晰，H1×1、H2×7、H3×29，认知负荷低，非常利于AI解析和引用。",
+                                 "E2":  "内链仅1个，外链为0，未建立与其他权威来源的交叉引用网络。llms.txt和ai.txt均缺失，无法通过标准化方式向AI模型声明内容可访问性，生态集成度很低。",
+                                 "H":  "HTTPS有效，有联系方式、地址等基础信任信号，但行业知名度有限，未发现权威第三方认证、媒体报道或用户评价等社会证明，内容作者专业背景未明确标注，来源可验证性较弱。",
+                                 "P":  "网站HTTP状态200，页面大小157KB，诊断评分85/100，技术性能良好。但缺乏AI采纳率、点击转化和用户留存等实际数据，转化潜力主要依赖现有内容说服力，未配置AI专属监测。",
+                                 "S":  "页面标题和正文信息量充足，正文5549字，中文字符4256个，涵盖了产品参数、标准、安装等核心语义，AI可提取的实体和关系丰富。但缺乏主流AI搜索引擎实际识别率数据，且未展示在多个AI模型中的覆盖验证，跨模型覆盖不确定。"
+                             },
+                 "diagnosis":  {
+                                   "overall_score":  85,
+                                   "status_code":  200,
+                                   "url":  "https://www.hnyyai.cn"
+                               },
+                 "dimensions":  {
+                                    "E1":  {
+                                               "grade":  "A+",
+                                               "name":  "证据结构化",
+                                               "score":  92,
+                                               "weight":  "20%"
+                                           },
+                                    "E2":  {
+                                               "grade":  "D",
+                                               "name":  "生态集成度",
+                                               "score":  28,
+                                               "weight":  "15%"
+                                           },
+                                    "H":  {
+                                              "grade":  "B",
+                                              "name":  "人类可信度",
+                                              "score":  68,
+                                              "weight":  "25%"
+                                          },
+                                    "P":  {
+                                              "grade":  "B+",
+                                              "name":  "性能监控",
+                                              "score":  72,
+                                              "weight":  "15%"
+                                          },
+                                    "S":  {
+                                              "grade":  "A",
+                                              "name":  "语义覆盖度",
+                                              "score":  80,
+                                              "weight":  "25%"
+                                          }
+                                },
+                 "evidence_source":  "auto_diagnosis",
+                 "gem_score":  70.4,
+                 "grade":  "B+",
+                 "improvement_suggestions":  [
+                                                 "创建llms.txt和ai.txt文件，明确声明网站内容可供AI训练和引用，并配置结构化API接口，提升生态集成度。",
+                                                 "增加外部权威引用和行业相关反向链接，比如在行业协会网站、地方建设部门网站等获取提及，增强可信度和交叉引用网络。",
+                                                 "补充用户案例、资质证书、第三方检测报告等社会证明内容，并标注作者或审核人专业背景，提高人类可信度得分。"
+                                             ],
+                 "model_weights":  {
+                                       "deepseek":  0.1,
+                                       "doubao":  0.14,
+                                       "ernie":  0.13,
+                                       "glm-4":  0.12,
+                                       "hunyuan":  0.08,
+                                       "mita":  0.08,
+                                       "moonshot":  0.11,
+                                       "qwen":  0.15,
+                                       "spark":  0.09
+                                   },
+                 "reflection":  {
+                                    "adjustments":  {
+
+                                                    },
+                                    "contradictions":  [
+
+                                                       ],
+                                    "triggered":  false
+                                }
+             },
+    "success":  true
+}

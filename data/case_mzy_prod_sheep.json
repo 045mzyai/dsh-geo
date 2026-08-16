@@ -1,0 +1,69 @@
+﻿{
+    "data":  {
+                 "company_name":  "四川木子杨科技有限公司",
+                 "details":  {
+                                 "E1":  "使用了6个JSON-LD结构化数据（Organization、WebSite、LocalBusiness、Service、SoftwareApplication等），标题层级清晰（H1×1, H2×9, H3×18），信息架构对AI解析极为友好。",
+                                 "E2":  "存在llms.txt文件利于AI生态集成，但缺失ai.txt，外链仅2个，交叉引用网络薄弱，多平台可见性不足，生态集成度有限。",
+                                 "H":  "网站具备HTTPS、联系方式、地址等基础信任信号，但缺乏行业权威背书、作者专业资质展示及用户评价等社会证明，整体可信度处于中等水平。",
+                                 "P":  "技术性能优异：HTTP状态200，页面大小102KB，诊断评分100/100，加载和可访问性良好。但缺乏AI推荐转化率、用户留存等实际监控数据，转化潜力待验证。",
+                                 "S":  "页面标题、meta描述和正文内容充实（5574字），中文字符量充足，AI可提取信息丰富，有利于语义覆盖。但未提供跨模型覆盖率数据，暂无法评估多模型识别率。"
+                             },
+                 "diagnosis":  {
+                                   "overall_score":  100,
+                                   "status_code":  200,
+                                   "url":  "https://www.mzyai.com"
+                               },
+                 "dimensions":  {
+                                    "E1":  {
+                                               "grade":  "A+",
+                                               "name":  "证据结构化",
+                                               "score":  95,
+                                               "weight":  "20%"
+                                           },
+                                    "E2":  {
+                                               "grade":  "B+",
+                                               "name":  "生态集成度",
+                                               "score":  70,
+                                               "weight":  "15%"
+                                           },
+                                    "H":  {
+                                              "grade":  "B+",
+                                              "name":  "人类可信度",
+                                              "score":  75,
+                                              "weight":  "25%"
+                                          },
+                                    "P":  {
+                                              "grade":  "A",
+                                              "name":  "性能监控",
+                                              "score":  80,
+                                              "weight":  "15%"
+                                          },
+                                    "S":  {
+                                              "grade":  "A+",
+                                              "name":  "语义覆盖度",
+                                              "score":  90,
+                                              "weight":  "25%"
+                                          }
+                                },
+                 "evidence_source":  "auto_diagnosis",
+                 "gem_score":  82.8,
+                 "grade":  "A",
+                 "improvement_suggestions":  [
+                                                 "补充ai.txt文件，提供更标准化的AI访问入口，增强生态集成。",
+                                                 "拓展高质量外链，例如争取行业媒体、技术社区或合作伙伴网站的引用，提升交叉引用网络。",
+                                                 "增加客户案例、用户评价、媒体报道等社会证明，强化人类可信度维度。"
+                                             ],
+                 "model_weights":  {
+                                       "deepseek":  0.1,
+                                       "doubao":  0.14,
+                                       "ernie":  0.13,
+                                       "glm-4":  0.12,
+                                       "hunyuan":  0.08,
+                                       "mita":  0.08,
+                                       "moonshot":  0.11,
+                                       "qwen":  0.15,
+                                       "spark":  0.09
+                                   }
+             },
+    "success":  true
+}

@@ -1,0 +1,78 @@
+﻿{
+    "data":  {
+                 "charset_declared":  true,
+                 "checks":  {
+                                "ai_readability":  {
+                                                       "chinese_chars":  4256,
+                                                       "detail":  "中文字符4256个, 联系方式有, 地址有",
+                                                       "has_address":  true,
+                                                       "has_contact_info":  true,
+                                                       "pass":  true,
+                                                       "text_length":  5549,
+                                                       "word_count":  398
+                                                   },
+                                "headings":  {
+                                                 "detail":  "H1: 1个, H2: 7个, H3: 29个",
+                                                 "h1_count":  1,
+                                                 "h1_text":  [
+                                                                 "海南专业烟道整体解决方案源头厂家 · 品质保障"
+                                                             ],
+                                                 "h2_count":  7,
+                                                 "h3_count":  29,
+                                                 "pass":  true
+                                             },
+                                "https":  {
+                                              "detail":  "HTTPS",
+                                              "pass":  true
+                                          },
+                                "links":  {
+                                              "external":  0,
+                                              "internal":  1,
+                                              "pass":  true,
+                                              "total":  34
+                                          },
+                                "llms_txt":  {
+                                                 "ai_txt":  false,
+                                                 "detail":  "已部署",
+                                                 "llms_txt":  true,
+                                                 "pass":  true
+                                             },
+                                "meta_tags":  {
+                                                  "description":  "海南易运科技有限公司是海南专业机制烟道厂家【源头工厂】，主营：机制烟道/排烟管道（国标壁厚25mm/2.5公分）/排烟气道生产安装、烟道止回阀、风帽定制、厨房排烟管道排烟、消防烟道工程。拥有十一大权威资质，连续四年抽检合格，耐火极限检测达标，海口市质检站常规5项检测全部通过。做烟道多少钱？致电135-0533-0808获取烟道价格。",
+                                                  "has_charset":  true,
+                                                  "has_description":  true,
+                                                  "has_viewport":  true,
+                                                  "pass":  true,
+                                                  "title":  "海南首家符合新标准烟道公司_机制烟道【壁厚25mm】排烟管道安装_耐火极限达标_海南易运科技有限公司"
+                                              },
+                                "structured_data":  {
+                                                        "detail":  "JSON-LD: 11个, Microdata: 10个",
+                                                        "json_ld_count":  11,
+                                                        "microdata_count":  10,
+                                                        "pass":  true,
+                                                        "schema_types":  [
+                                                                             "BreadcrumbList",
+                                                                             "LocalBusiness",
+                                                                             "FAQPage",
+                                                                             "FAQPage",
+                                                                             "Article",
+                                                                             "Organization",
+                                                                             "ItemList",
+                                                                             "VideoObject",
+                                                                             "LocalBusiness",
+                                                                             "WebPage",
+                                                                             "Service"
+                                                                         ]
+                                                    }
+                            },
+                 "domain":  "127.0.0.1:8098",
+                 "html_size":  161871,
+                 "issues":  [
+
+                            ],
+                 "score":  100,
+                 "status_code":  200,
+                 "url":  "https://127.0.0.1:8098/"
+             },
+    "success":  true
+}
