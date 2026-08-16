@@ -24,6 +24,7 @@ from agents.pdf_dedup import audit_website_pdfs, audit_duplicate_pdfs
 from config import PORT, DEBUG
 import os
 import json
+import time
 
 # 异步任务存储（app.py全局，避免模块间状态问题）
 _BENCHMARK_TASKS = {}
@@ -35,6 +36,12 @@ STATIC_DIR = os.path.join(os.path.dirname(__file__), "static")
 
 @app.route("/")
 def index():
+    return send_from_directory(STATIC_DIR, "landing.html")
+
+
+@app.route("/app")
+@app.route("/dashboard")
+def dashboard():
     return send_from_directory(STATIC_DIR, "index.html")
 
 
@@ -45,13 +52,13 @@ def health():
 
 # API认证中间件
 GEO_API_TOKEN = os.environ.get("GEO_API_TOKEN", "")
-AUTH_EXEMPT_PATHS = {"/health", "/", "/api/auth/register", "/api/auth/login"}
+AUTH_EXEMPT_PATHS = {"/health", "/", "/app", "/dashboard", "/api/auth/register", "/api/auth/login"}
 
 
 @app.before_request
 def check_auth():
     path = request.path
-    if path in AUTH_EXEMPT_PATHS or path.startswith("/static"):
+    if path in AUTH_EXEMPT_PATHS or path.startswith("/static") or path.startswith("/api/public/"):
         return None
 
     # 模式1: 服务间Token（GEO_API_TOKEN）
@@ -111,6 +118,155 @@ def auth_me():
     if not user_info:
         return jsonify({"error": "用户不存在"}), 404
     return jsonify({"user": user_info})
+
+
+# ========== 公开免费接口（引流钩子，无需登录）==========
+
+_PUBLIC_SCAN_HITS = {}  # ip -> [timestamps]
+_PUBLIC_SCAN_MAX = 3
+_PUBLIC_SCAN_WINDOW = 3600
+
+
+def _ip_rate_limited(ip):
+    now = time.time()
+    hits = [t for t in _PUBLIC_SCAN_HITS.get(ip, []) if now - t < _PUBLIC_SCAN_WINDOW]
+    if len(hits) >= _PUBLIC_SCAN_MAX:
+        _PUBLIC_SCAN_HITS[ip] = hits
+        return True
+    hits.append(now)
+    _PUBLIC_SCAN_HITS[ip] = hits
+    if len(_PUBLIC_SCAN_HITS) > 10000:
+        for k in list(_PUBLIC_SCAN_HITS):
+            if not any(now - t < _PUBLIC_SCAN_WINDOW for t in _PUBLIC_SCAN_HITS[k]):
+                del _PUBLIC_SCAN_HITS[k]
+    return False
+
+
+def _score_to_grade(score):
+    if score >= 90:
+        return "A+"
+    if score >= 80:
+        return "A"
+    if score >= 75:
+        return "B+"
+    if score >= 70:
+        return "B"
+    if score >= 65:
+        return "C+"
+    if score >= 60:
+        return "C"
+    return "D"
+
+
+@app.route("/api/public/quick-scan", methods=["POST"])
+def public_quick_scan():
+    """免费GEO快扫：客观抓取分析（无LLM），按IP限频。"""
+    data = request.get_json(silent=True) or {}
+    url = (data.get("url") or "").strip()
+    if not url:
+        return jsonify({"success": False, "error": "请输入网址"}), 400
+    if not url.startswith(("http://", "https://")):
+        url = "https://" + url
+
+    ip = (request.headers.get("X-Forwarded-For") or request.remote_addr or "").split(",")[0].strip()
+    if _ip_rate_limited(ip):
+        return jsonify({"success": False, "error": "免费快扫已达上限（每小时3次），登录后不限次并解锁完整报告"}), 429
+
+    agent = get_agent("page_diagnoser")
+    diag = agent.execute({"url": url, "verify_ssl": True})
+    if not diag.get("success") or diag.get("data", {}).get("fetch_error"):
+        err = diag.get("data", {}).get("fetch_error", "无法访问")
+        diag = agent.execute({"url": url, "verify_ssl": False})
+        if not diag.get("success") or diag.get("data", {}).get("fetch_error"):
+            return jsonify({"success": False, "error": "网址无法访问：" + err}), 200
+
+    d = diag.get("data", {})
+    checks = d.get("checks", {})
+    score = d.get("score", 0)
+    meta = checks.get("meta_tags", {}) or {}
+    struct = checks.get("structured_data", {}) or {}
+    llms = checks.get("llms_txt", {}) or {}
+    headings = checks.get("headings", {}) or {}
+    ai_read = checks.get("ai_readability", {}) or {}
+    trust = checks.get("trust_signals", {}) or {}
+    https_c = checks.get("https", {}) or {}
+
+    checklist = [
+        {"key": "https", "label": "HTTPS 加密", "pass": https_c.get("pass", False), "detail": https_c.get("detail", "")},
+        {"key": "meta", "label": "标题 / 描述 meta", "pass": meta.get("pass", False), "detail": meta.get("title") or "缺少 title 或 description"},
+        {"key": "viewport", "label": "移动端 viewport", "pass": meta.get("has_viewport", False), "detail": "已声明" if meta.get("has_viewport") else "缺失"},
+        {"key": "jsonld", "label": "结构化数据 JSON-LD", "pass": struct.get("pass", False), "detail": struct.get("detail", "")},
+        {"key": "llms_txt", "label": "llms.txt / ai.txt", "pass": llms.get("pass", False), "detail": llms.get("detail", "")},
+        {"key": "h1", "label": "语义标题 H1", "pass": headings.get("pass", False), "detail": headings.get("detail", "")},
+        {"key": "ai_read", "label": "AI 可读正文", "pass": ai_read.get("pass", False), "detail": ai_read.get("detail", "")},
+        {"key": "trust", "label": "信任信号 ICP/公安/执照", "pass": trust.get("pass", False), "detail": trust.get("detail", "")},
+    ]
+
+    sev_rank = {"fatal": 0, "high": 1, "medium": 2, "low": 3}
+    issues = sorted(d.get("issues", []), key=lambda i: sev_rank.get(i.get("severity", "low"), 9))
+    top_issues = [
+        {"severity": i.get("severity"), "category": i.get("category"), "message": i.get("message")}
+        for i in issues[:3]
+    ]
+
+    return jsonify({
+        "success": True,
+        "data": {
+            "url": d.get("url", url),
+            "domain": d.get("domain", ""),
+            "is_spa": d.get("is_spa", False),
+            "status_code": d.get("status_code"),
+            "score": score,
+            "grade": _score_to_grade(score),
+            "checklist": checklist,
+            "top_issues": top_issues,
+            "issue_count": len(issues),
+            "locked": True,
+        },
+    })
+
+
+@app.route("/api/public/cases", methods=["GET"])
+def public_cases():
+    """公开案例精选（脱敏后用于落地页营销）。"""
+    conn = get_db()
+    rows = conn.execute(
+        """SELECT r.id, c.name AS company_name, c.domain, r.score, r.grade,
+                  r.summary, r.core_advantage
+           FROM geo_reports r JOIN companies c ON r.company_id = c.id
+           WHERE r.report_type = 'diagnose_after'
+           ORDER BY r.created_at DESC LIMIT 6"""
+    ).fetchall()
+    conn.close()
+    cases = [
+        {
+            "id": r["id"],
+            "company_name": r["company_name"],
+            "domain": r["domain"],
+            "score": r["score"],
+            "grade": r["grade"],
+            "summary": r["summary"],
+            "core_advantage": r["core_advantage"],
+        }
+        for r in rows
+    ]
+    return jsonify({"success": True, "data": cases})
+
+
+@app.route("/api/public/features", methods=["GET"])
+def public_features():
+    """功能矩阵清单（落地页渲染用）。"""
+    return jsonify({"success": True, "data": [
+        {"icon": "★", "name": "SHEEP 五维评分", "desc": "S/H/E1/E2/P 五维 + GEM 综合分，自洽多采样与证据锚定反思", "tag": "独家"},
+        {"icon": "⚙", "name": "网站 GEO 诊断", "desc": "抓取页面，技术 SEO、结构化数据、AI 可读性体检"},
+        {"icon": "⚡", "name": "一键优化产物", "desc": "生成 llms.txt / robots.txt / sitemap.xml / meta / FAQ"},
+        {"icon": "◉", "name": "AI 引擎可见性监控", "desc": "定时检测在 DeepSeek/Kimi/豆包/文心/通义中的被引用与准确率"},
+        {"icon": "❖", "name": "竞品追踪", "desc": "声音份额、引用差距、排名对比分析"},
+        {"icon": "⚠", "name": "内容合规门禁", "desc": "极限词/伪造背书/绝对化承诺/关键词堆砌检测，发布前硬约束", "tag": "独家"},
+        {"icon": "▲", "name": "六层成熟度", "desc": "全站 GEO 成熟度分层评估"},
+        {"icon": "✉", "name": "RAG 知识问答", "desc": "基于已入库企业知识的检索增强对话"},
+        {"icon": "▤", "name": "报告与导出", "desc": "PDF 体检报告、CSV 监控历史、执行仪表板"},
+    ]})
 
 
 # ========== 公司 ==========

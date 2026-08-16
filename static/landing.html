@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GEO 平台 · 让官网被 AI 大模型准确引用 | 妙智云</title>
+  <meta name="description" content="免费为任意网站生成 GEO（生成式引擎优化）报告。SHEEP 五维评分、网站诊断、一键优化、AI 引擎可见性监控、竞品追踪、内容合规门禁。登录解锁完整能力。">
+  <meta property="og:title" content="GEO 平台 · 让官网被 AI 大模型准确引用">
+  <meta property="og:description" content="输入网址，免费秒出 GEO 就绪度报告。登录解锁 SHEEP 五维评分与一键优化。">
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="stylesheet" href="/static/css/landing.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- ===== Nav ===== -->
+<nav class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="/"><span class="dot"></span> GEO <small>by 妙智云</small></a>
+    <div class="nav-links">
+      <a href="#features">功能</a>
+      <a href="#sheep">SHEEP 评分</a>
+      <a href="#cases">案例</a>
+      <a href="#pricing">定价</a>
+      <a href="https://www.mzyai.com" target="_blank" rel="noopener">妙智云主站 ↗</a>
+    </div>
+    <div class="nav-cta">
+      <a class="btn btn-ghost btn-sm" href="/app">登录</a>
+      <a class="btn btn-primary btn-sm" href="#scan">免费体检</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== Hero ===== -->
+<header class="hero" id="scan">
+  <div class="hero-grid-bg"></div>
+  <div class="wrap hero-inner">
+    <span class="badge">● 2026 AI 内容合规时代 · GEO 引擎优化</span>
+    <h1>让你的官网被 <span class="em">DeepSeek / Kimi / 豆包</span><br>准确引用与推荐</h1>
+    <p class="lead">输入网址，免费生成 GEO 就绪度报告。SHEEP 五维评分 · 一键优化产物 · AI 可见性监控——使用完整能力需登录。</p>
+    <p class="powered">由 <a href="https://www.mzyai.com" target="_blank" rel="noopener">妙智云 AI 网关</a> 提供多模型能力 · 了解主站</p>
+
+    <div class="scan-card">
+      <form class="scan-form" id="scan-form" autocomplete="off">
+        <input type="text" id="scan-url" placeholder="输入网址，如 mzyai.com" spellcheck="false">
+        <button class="btn btn-primary" type="submit" id="scan-btn">免费 GEO 快扫</button>
+      </form>
+      <div class="scan-hint"><span class="ok">无需登录</span> · 客观抓取分析，秒级出报告 · 每小时 3 次</div>
+    </div>
+
+    <div class="scan-error" id="scan-error"></div>
+    <div class="scan-result" id="scan-result"></div>
+  </div>
+</header>
+
+<!-- ===== Features ===== -->
+<section class="section" id="features">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">功能矩阵</div>
+      <h2>从诊断到优化，一个闭环</h2>
+      <p>所有能力在此展示；免费快扫可体验客观体检，登录后解锁完整 SHEEP 评分、一键优化与 AI 监控。</p>
+    </div>
+    <div class="feat-grid" id="feat-grid"></div>
+  </div>
+</section>
+
+<!-- ===== SHEEP ===== -->
+<section class="section" id="sheep" style="background:var(--bg-soft);">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">核心方法论</div>
+      <h2>SHEEP 五维 · GEM 综合分</h2>
+      <p>优于竞品的单一"可见性评分"。每个维度多次采样取中位数共识，客观信号锚定 LLM 打分下限，发现矛盾触发重评。</p>
+    </div>
+    <div class="sheep-wrap">
+      <div class="sheep-dims">
+        <div class="dim"><div class="letter">S</div><div><h4>语义结构化</h4><p>Schema.org 标记、语义化 HTML、实体消歧</p></div></div>
+        <div class="dim"><div class="letter">H</div><div><h4>人机双读</h4><p>内容既对人友好，也对 AI 可解析</p></div></div>
+        <div class="dim"><div class="letter">E</div><div><h4>AI 生态融合</h4><p>llms.txt、robots.txt 对 AI 爬虫的可达性</p></div></div>
+        <div class="dim"><div class="letter">E</div><div><h4>AI 内容适配</h4><p>内容是否便于大模型抽取、引用、总结</p></div></div>
+        <div class="dim"><div class="letter">P</div><div><h4>性能可访问</h4><p>加载速度、可访问性、移动端适配</p></div></div>
+      </div>
+      <div class="grade-table">
+        <h4>等级标准</h4>
+        <div class="grade-row"><span class="g g-Aplus">A+</span><span>≥ 90 卓越</span></div>
+        <div class="grade-row"><span class="g g-A">A</span><span>≥ 80 优秀</span></div>
+        <div class="grade-row"><span class="g g-Bplus">B+</span><span>≥ 75 良好</span></div>
+        <div class="grade-row"><span class="g g-B">B</span><span>≥ 70 合格</span></div>
+        <div class="grade-row"><span class="g g-Cplus">C+</span><span>≥ 65 待提升</span></div>
+        <div class="grade-row"><span class="g g-C">C</span><span>≥ 60 基础薄弱</span></div>
+        <div class="grade-row"><span class="g g-D">D</span><span>&lt; 60 急需优化</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Cases ===== -->
+<section class="section" id="cases">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">真实案例</div>
+      <h2>优化前后对比</h2>
+      <p>基于真实企业官网的 GEO 体检与优化结果。</p>
+    </div>
+    <div class="case-grid" id="case-grid">
+      <div class="cases-empty">加载案例中…</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Pricing ===== -->
+<section class="section" id="pricing" style="background:var(--bg-soft);">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">定价</div>
+      <h2>从免费开始</h2>
+      <p>免费版即可体检与基础诊断；专业/企业版解锁 AI 监控、竞品追踪与不限量报告。</p>
+    </div>
+    <div class="price-grid">
+      <div class="price">
+        <h3>免费版</h3>
+        <div class="amt">¥0 <small>/月</small></div>
+        <div class="per">注册即用</div>
+        <ul>
+          <li>1 个企业</li>
+          <li>每月 10 次 AI 监控</li>
+          <li>每月 3 份报告</li>
+          <li>基础诊断 + SHEEP 评分</li>
+        </ul>
+        <a class="btn btn-ghost btn-block" href="/app">免费开始</a>
+      </div>
+      <div class="price featured">
+        <span class="ribbon">推荐</span>
+        <h3>专业版</h3>
+        <div class="amt">¥999 <small>/年</small></div>
+        <div class="per">折合 ¥83/月</div>
+        <ul>
+          <li>10 个企业</li>
+          <li>每月 100 次 AI 监控</li>
+          <li>每月 50 份报告</li>
+          <li>竞品追踪 + 定时监控</li>
+          <li>CSV 导出 + 优先支持</li>
+        </ul>
+        <a class="btn btn-primary btn-block" href="/app">升级专业版</a>
+      </div>
+      <div class="price">
+        <h3>企业版</h3>
+        <div class="amt">¥2999 <small>/年</small></div>
+        <div class="per">团队协作</div>
+        <ul>
+          <li>不限企业数</li>
+          <li>无限 AI 监控</li>
+          <li>无限报告</li>
+          <li>API 接入 + 定制策略</li>
+          <li>专属客服 + 白标报告</li>
+        </ul>
+        <a class="btn btn-ghost btn-block" href="/app">联系企业版</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="section" style="padding-top:0;">
+  <div class="wrap">
+    <div class="cta-band">
+      <h2>先把官网 GEO 就绪度跑一遍</h2>
+      <p>免费、无需登录，秒级出客观报告。</p>
+      <a class="btn btn-primary" href="#scan">立即免费体检</a>
+      <a class="btn btn-ghost" href="https://www.mzyai.com" target="_blank" rel="noopener">了解妙智云主站 ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <div>© 2026 妙智云 · GEO 生成式引擎优化平台</div>
+    <div><a href="/app">登录控制台</a> · <a href="https://www.mzyai.com" target="_blank" rel="noopener">mzyai.com</a></div>
+  </div>
+</footer>
+
+<script src="/static/js/landing.js?v=20260816b"></script>
+</body>
+</html>

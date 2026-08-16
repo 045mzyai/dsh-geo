@@ -132,3 +132,26 @@
 | GET | /api/billing/plans | 套餐列表 |
 | GET | /api/billing/usage | 用量统计 |
 | POST | /api/billing/upgrade | 升级套餐 |
+
+---
+
+## Phase 6: 官网引流 + 免费报告 + 登录漏斗（2026-08-17）
+
+> 目标：geo.mzyai.com 公开落地页引流，免费 GEO 报告作钩子，使用完整能力需登录。
+
+### 后端 `app.py`
+- 路由调整：`/` → `static/landing.html`（公开落地页）；新增 `/app`、`/dashboard` → `static/index.html`（仪表盘，登录后用）
+- `check_auth` 豁免前缀 `/api/public/`，新增三个公开端点（无需登录）：
+  - `POST /api/public/quick-scan {url}` → 复用 `page_diagnoser` 客观抓取分析（**无 LLM**），返回 0-100 就绪度分 + 等级 + 8 项检查清单 + Top3 问题 + `locked:true`；按 IP 限频 3 次/小时，超限 429
+  - `GET /api/public/cases` → 案例精选（脱敏，落地页营销用）
+  - `GET /api/public/features` → 功能矩阵清单
+- 现有全部 `/api/*` **保持 JWT**（即"使用需登录"硬约束不变）
+
+### 前端（新建）
+- `static/landing.html` + `static/css/landing.css` + `static/js/landing.js`：Hero 免费体检表单、功能矩阵、SHEEP 五维+等级表、案例、三套餐定价、CTA
+- 免费快扫结果：分数环 + 等级 + 检查清单(✅/❌) + Top3 问题 + **锁定区**（SHEEP/一键优化/AI监控/竞品/PDF 导出）+「登录解锁」→ `/app`
+- 仪表盘 `static/index.html` 侧边栏新增「‹ 返回官网」链接
+
+### 漏斗设计
+公开落地页(引流) → 免费客观快扫(无需登录,秒级,防滥用) → 关键能力锁定 → 登录墙(`/app`,解锁 SHEEP 五维/一键优化/AI监控) → 套餐升级
+免费快扫刻意不调 LLM：零成本、秒级、抗滥用；全量 LLM 分析与一键优化作为"登录后"价值。
