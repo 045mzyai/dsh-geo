@@ -1,5 +1,12 @@
 # dsh-geo
 
+[![CI](https://github.com/045mzyai/dsh-geo/actions/workflows/ci.yml/badge.svg)](https://github.com/045mzyai/dsh-geo/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
+[![Python](https://img.shields.io/badge/python-3.8%20%7C%203.12-blue.svg)](https://www.python.org/)
+[![GitHub stars](https://img.shields.io/github/stars/045mzyai/dsh-geo?style=social)](https://github.com/045mzyai/dsh-geo/stargazers)
+[![last commit](https://img.shields.io/github/last-commit/045mzyai/dsh-geo)](https://github.com/045mzyai/dsh-geo/commits/main)
+[![issues](https://img.shields.io/github/issues/045mzyai/dsh-geo)](https://github.com/045mzyai/dsh-geo/issues)
+
 > 面向 AI 大模型时代的企业官网 **GEO（生成式引擎优化）** 平台 —— 让你的官网在 DeepSeek、Kimi、豆包、GLM、混元 等 AI 回答中被准确引用与推荐。
 
 **English:** A self-hosted GEO (Generative Engine Optimization) platform for enterprise websites. Instead of ranking on traditional search engines, GEO optimizes your site so LLM-based answer engines accurately cite and recommend it. dsh-geo bundles diagnosis, multi-dimensional scoring, optimization-artifact generation, compliance gating, and AI-visibility benchmarking in one Flask service.
